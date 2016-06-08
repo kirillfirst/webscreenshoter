@@ -1,0 +1,6 @@
+#!/bin/bash
+a=$(date +%Y-%m-%d-%M-%S).png
+scrot -s "$a" -e 's3cmd put '$a' s3://inbet/2015/screens/'
+echo http://inbet.s3.amazonaws.com/2015/screens/$a
+b="http://inbet.s3.amazonaws.com/2015/screens/$a"
+echo "$b" | xclip -i
