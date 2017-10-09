@@ -1,6 +1,8 @@
 #!/bin/bash
 a=$(date +%Y-%m-%d-%M-%S).png
-scrot -s "$a" -e 's3cmd put '$a' s3://yourURL/'
-echo http://yourURL/$a
-b="http://yourURL/$a"
-echo "$b" | xclip -i
+cd ~/Images/
+import "$a" 
+s3cmd put "$a" s3://inbet/2015/screens/
+b="http://inbet.s3.amazonaws.com/2015/screens/$a"
+echo "$b" | xsel -b -i
+notify-send --expire-time=5000 "$b"
