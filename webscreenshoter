@@ -2,7 +2,7 @@
 a=$(date +%Y-%m-%d-%M-%S).png
 cd ~/Images/
 import "$a" 
-s3cmd put "$a" s3://inbet/2015/screens/
-b="http://inbet.s3.amazonaws.com/2015/screens/$a"
+s3cmd put "$a" s3://url/
+b="http://utl/$a"
 echo "$b" | xsel -b -i
 notify-send --expire-time=5000 "$b"
